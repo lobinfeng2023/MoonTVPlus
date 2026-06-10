@@ -14,6 +14,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ubuntu-latest
     name: Deploy to Cloudflare Pages
 
     steps:
