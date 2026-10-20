@@ -52,7 +52,8 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const apiSites = await getAvailableApiSites(authInfo.username);
+    const specialOnly = request.nextUrl.searchParams.get('special') === '1';
+    const apiSites = await getAvailableApiSites(authInfo.username, specialOnly);
     const targetSite = apiSites.find((site) => site.key === sourceKey);
 
     if (!targetSite) {
